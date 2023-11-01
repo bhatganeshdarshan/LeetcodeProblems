@@ -1,15 +1,10 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        unordered_map <int,int> H;
-        for(auto x:nums){
-            H[x]++;
+        int cum_xor = 0 ;
+        for(int i = 0 ; i < nums.size();i++){
+            cum_xor = cum_xor ^ nums[i];
         }
-        for(auto x:H){
-            if(x.second==1){
-                return x.first;
-            }
-        }
-        return -1;
+        return cum_xor ;
     }
 };
